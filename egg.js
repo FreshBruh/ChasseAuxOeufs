@@ -77,7 +77,7 @@ const generateData = function(){
 
 const addFirstFinder = function(qlikAppId, name){
     if(!checkIfAlreadyFound(qlikAppId)){
-        const eggIndex = eggList.findIndex(element => element.qlikAppId===qlikAppId);
+        const eggIndex = eggList.findIndex(element => element.idAppQlik===qlikAppId);
         let egg = eggList.find(element => element.qlikAppId===qlikAppId);
         egg.name = name;
         eggList[eggIndex] = egg;
@@ -85,7 +85,7 @@ const addFirstFinder = function(qlikAppId, name){
 }
 
 const checkIfAlreadyFound = function(qlikAppId){
-    if(eggList.find(element => element.qlikAppId===qlikAppId).name != "") return true;
+    if(eggList.find(element => element.idAppQlik===qlikAppId).name != "") return true;
     else return false;
 }
 
@@ -93,7 +93,7 @@ const checkResponse = function(qlikAppId, getCurrentSelection){
     console.log(qlikAppId);
     console.log(getCurrentSelection);
     if(checkIfEggExists(qlikAppId)) {
-        const egg = eggList.find(element => element.qlikAppId===qlikAppId);
+        const egg = eggList.find(element => element.idAppQlik===qlikAppId);
         if(egg.response === getCurrentSelection) return true;
         else return false;
     } else return false;
@@ -101,12 +101,14 @@ const checkResponse = function(qlikAppId, getCurrentSelection){
 }
 
 const checkIfEggExists = function(qlikAppId) {
-    if(eggList.find(element => element.qlikAppId===qlikAppId) != undefined) return true;
+    const test = eggList.find(element => element.qlikAppId===qlikAppId);
+    console.log(test);
+    if(eggList.find(element => element.idAppQlik===qlikAppId) != undefined) return true;
     else return false;
 }
 
 const getNextEggUrl = function(qlikAppId){
-    const eggIndex = eggList.findIndex(element => element.qlikAppId===qlikAppId);
+    const eggIndex = eggList.findIndex(element => element.idAppQlik===qlikAppId);
     if(eggList[eggIndex+1] != undefined) return eggList[eggIndex+1].url
     else return false;
 }
