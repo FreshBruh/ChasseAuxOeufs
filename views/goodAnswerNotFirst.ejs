@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Chasse aux oeufs</title>
-    <link rel="icon" href="/assets/favicon.png"/>
-    <style>
-      body {
-        font-family: 'Trebuchet MS', sans-serif;
-        background-image: url("/assets/bg.jpg");
-        color: white;
-        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-      }
-      h1 {
-        font-size: 100px;
-        text-align: center;
-      }
-      p {
-        text-align: center;
-        font-size: 50px;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Chasse aux oeufs</h1>
-    <p> Bravo ! Tu as trouvé la bonne réponse. Quelqu'un a trouvé cet oeuf avant cependant, tu ne gagneras donc qu'un point.</p>
-    <br/>
-    <% if(nextUrl==false) { %>
-        <p> C'était le dernier oeuf, tu as fini la chasse aux oeufs, bravo !</p>
+
+<head>
+  <title>Chasse aux oeufs</title>
+  <link rel="icon" href="/assets/favicon.png" />
+  <style>
+    body {
+      font-family: 'Trebuchet MS', sans-serif;
+      background-image: url("/assets/bg.jpg");
+      color: white;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+
+    h1 {
+      font-size: 100px;
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+      font-size: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Chasse aux oeufs</h1>
+  <p> Bravo ! Tu as trouvé la bonne réponse. Quelqu'un a trouvé cet oeuf avant cependant, tu ne gagneras donc qu'un
+    point.</p>
+  <br />
+  <% if(nextUrl==false) { %>
+    <p> C'était le dernier oeuf, tu as fini la chasse aux oeufs, bravo !</p>
     <% } else { %>
-        <p> Le prochain oeuf se trouve sur cette appli : <%= nextUrl %> </p>
-        <p> La question pour trouver l'oeuf est la suivante : <%= nextQuestion %></p>
-    <% } %>
-  </body>
+      <p> Clique sur le lapin pour trouver le prochain oeuf <a href="<%= nextUrl %>">🐰</a> </p>
+      <p> La question pour trouver l'oeuf est la suivante : <%= nextQuestion %>
+      </p>
+      <% } %>
+</body>
+
 </html>
