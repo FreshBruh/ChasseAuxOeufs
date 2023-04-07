@@ -36,7 +36,7 @@ const generateData = function () {
         },
         {
             eggId: 5,
-            idAppQlik: "288b0a78-4fdb-4395-955c-4763d113834e",
+            qlikAppId: "288b0a78-4fdb-4395-955c-4763d113834e",
             response: "Mois:Février;est_TER:1;lbl_liste_transporteurs:TER,TGVINOUI;RegroupementMarché:France;produit_ter:TRAIN;Région:PaysdelaLoire",
             name: "",
             url: "https://qlik.marketing-oui-prod.aws.vsct.fr/sense/app/288b0a78-4fdb-4395-955c-4763d113834e",
@@ -44,7 +44,7 @@ const generateData = function () {
         },
         {
             eggId: 6,
-            idAppQlik: "fcaf824e-cbb8-4f3f-9b5b-a2387c86fa7b",
+            qlikAppId: "fcaf824e-cbb8-4f3f-9b5b-a2387c86fa7b",
             response: "RegroupementMarché:France;RegroupementTransporteur:TGV;SegmentTarif:Jeunes;RouteCommerciale:Lille&gt;Marseille",
             name: "",
             url: "https://qlik.marketing-oui-prod.aws.vsct.fr/sense/app/fcaf824e-cbb8-4f3f-9b5b-a2387c86fa7b",
@@ -52,7 +52,7 @@ const generateData = function () {
         },
         {
             eggId: 7,
-            idAppQlik: "e15ba73d-5596-4884-af05-63f2aa3b971d",
+            qlikAppId: "e15ba73d-5596-4884-af05-63f2aa3b971d",
             response: "lbl_mois_commande:=annee_commande*12+num_mois_commande=(year(today()-1)*12+month(today()-1)-1);Regroupement_Marche:France;Produit:Train;Regroupement_Transporteur:IC",
             name: "",
             url: "https://qlik.marketing-oui-prod.aws.vsct.fr/sense/app/e15ba73d-5596-4884-af05-63f2aa3b971d",
@@ -60,7 +60,7 @@ const generateData = function () {
         },
         {
             eggId: 8,
-            idAppQlik: "4013b077-4f10-484e-b75e-35350c7b663b",
+            qlikAppId: "4013b077-4f10-484e-b75e-35350c7b663b",
             response: "origin_code:BordeauxStJean;Marché:Français;NomJour_travel:sam.;Date_observation:01-04-2023",
             name: "",
             url: "https://qlik.marketing-oui-prod.aws.vsct.fr/sense/app/4013b077-4f10-484e-b75e-35350c7b663b",
@@ -68,7 +68,7 @@ const generateData = function () {
         },
         {
             eggId: 9,
-            idAppQlik: "d24fa672-9d4a-443b-9f6d-7d086598ad6f",
+            qlikAppId: "d24fa672-9d4a-443b-9f6d-7d086598ad6f",
             response: "Semaine:10;est_avantage:1;RegroupementMarché:Europe",
             name: "",
             url: "https://qlik.marketing-oui-prod.aws.vsct.fr/sense/app/d24fa672-9d4a-443b-9f6d-7d086598ad6f",
@@ -76,7 +76,7 @@ const generateData = function () {
         },
         {
             eggId: 10,
-            idAppQlik: "d0a29b92-7fca-4a9d-b41f-b7e3cd06ed86",
+            qlikAppId: "d0a29b92-7fca-4a9d-b41f-b7e3cd06ed86",
             response: "dt_jour:=[Année]*12+num_mois_annee<=year(today()-1)*12+month(today()-1)andid_date_commande<=today()-1;lbl_classe_transport:Première;=Date#(lbl_mois,'MMM'):Février",
             name: "",
             url: "https://qlik.marketing-oui-prod.aws.vsct.fr/sense/app/d0a29b92-7fca-4a9d-b41f-b7e3cd06ed86",
@@ -87,7 +87,7 @@ const generateData = function () {
 
 const addFirstFinder = function (qlikAppId, name) {
     if (!checkIfAlreadyFound(qlikAppId)) {
-        const eggIndex = eggList.findIndex(element => element.idAppQlik === qlikAppId);
+        const eggIndex = eggList.findIndex(element => element.qlikAppId === qlikAppId);
         let egg = eggList.find(element => element.qlikAppId === qlikAppId);
         egg.name = name;
         eggList[eggIndex] = egg;
@@ -95,7 +95,7 @@ const addFirstFinder = function (qlikAppId, name) {
 }
 
 const checkIfAlreadyFound = function (qlikAppId) {
-    if (eggList.find(element => element.idAppQlik === qlikAppId).name != "") return true;
+    if (eggList.find(element => element.qlikAppId === qlikAppId).name != "") return true;
     else return false;
 }
 
@@ -103,7 +103,7 @@ const checkResponse = function (qlikAppId, getCurrentSelection) {
     console.log(qlikAppId);
     console.log(getCurrentSelection);
     if (checkIfEggExists(qlikAppId)) {
-        const egg = eggList.find(element => element.idAppQlik === qlikAppId);
+        const egg = eggList.find(element => element.qlikAppId === qlikAppId);
         if (egg.response === getCurrentSelection) return true;
         else return false;
     } else return false;
@@ -113,18 +113,18 @@ const checkResponse = function (qlikAppId, getCurrentSelection) {
 const checkIfEggExists = function (qlikAppId) {
     const test = eggList.find(element => element.qlikAppId === qlikAppId);
     console.log(test);
-    if (eggList.find(element => element.idAppQlik === qlikAppId) != undefined) return true;
+    if (eggList.find(element => element.qlikAppId === qlikAppId) != undefined) return true;
     else return false;
 }
 
 const getNextEggUrl = function (qlikAppId) {
-    const eggIndex = eggList.findIndex(element => element.idAppQlik === qlikAppId);
+    const eggIndex = eggList.findIndex(element => element.qlikAppId === qlikAppId);
     if (eggList[eggIndex + 1] != undefined) return eggList[eggIndex + 1].url
     else return false;
 }
 
 const getNextQuestion = function (qlikAppId) {
-    const eggIndex = eggList.findIndex(element => element.idAppQlik === qlikAppId);
+    const eggIndex = eggList.findIndex(element => element.qlikAppId === qlikAppId);
     if (eggList[eggIndex + 1] != undefined) return eggList[eggIndex + 1].question
     else return false;
 }
