@@ -16,7 +16,7 @@ const generateData = function () {
             response: "DatedeCommande:7of66;lbl_os:IOS;lbl_Agglo_Reseau:Angoulême-RéseauMöbius",
             name: "",
             url: "https://qlik.marketing-oui-prod.aws.vsct.fr/sense/app/62e42d2d-36a4-40a6-88c3-2023fecdd689",
-            question: "Sélectionner la bonne semaine calendaire (du lundi au dimanche) de mars, et la bonne Agglomération - Réseau , qui a généré un VA de 56,60 euros pour IOS sur le marché France"
+            question: "La question pour trouver l'oeuf est la suivante : Sélectionner la bonne semaine calendaire (du lundi au dimanche) de mars, et la bonne Agglomération - Réseau , qui a généré un VA de 56,60 euros pour IOS."
         },
         {
             eggId: 3,
@@ -29,7 +29,7 @@ const generateData = function () {
         {
             eggId: 4,
             qlikAppId: "f1088400-19a9-4efd-bedb-336a41cb8bea",
-            response: "DatedeCommande:02-04-2023;SemainedeCommande:14;RegroupementMarché:France;CanaldeDistribution:Site;TypedeProduit:Liberté",
+            response: "DatedeCommande:02/04/2023;RegroupementMarché:France;CanaldeDistribution:Site;TypedeProduit:Liberté",
             name: "",
             url: "https://qlik.marketing-oui-prod.aws.vsct.fr/sense/app/f1088400-19a9-4efd-bedb-336a41cb8bea",
             question: "Pour quel jour d'avril 2023 et quel type de produit, nous avons vendu 553 cartes sur le site pour le marché France ?"
@@ -45,7 +45,7 @@ const generateData = function () {
         {
             eggId: 6,
             qlikAppId: "fcaf824e-cbb8-4f3f-9b5b-a2387c86fa7b",
-            response: "RegroupementMarché:France;RegroupementTransporteur:TGV;SegmentTarif:Jeunes;RouteCommerciale:Lille&gt;Marseille",
+            response: "RegroupementMarché:France;RegroupementTransporteur:TGV;SegmentTarif:Jeunes",
             name: "",
             url: "https://qlik.marketing-oui-prod.aws.vsct.fr/sense/app/fcaf824e-cbb8-4f3f-9b5b-a2387c86fa7b",
             question: "Sélectionner le transporteur et le segment tarif pour lesquels la route Lille - Marseille a généré un VA de 226 euros sur le marché France."
@@ -77,7 +77,7 @@ const generateData = function () {
         {
             eggId: 10,
             qlikAppId: "d0a29b92-7fca-4a9d-b41f-b7e3cd06ed86",
-            response: "dt_jour:=[Année]*12+num_mois_annee<=year(today()-1)*12+month(today()-1)andid_date_commande<=today()-1;lbl_classe_transport:Première;=Date#(lbl_mois,'MMM'):Février",
+            response: "dt_jour:=[Année]*12+num_mois_annee&lt;=year(today()-1)*12+month(today()-1)andid_date_commande&lt;=today()-1;lbl_classe_transport:Première;=Date#(lbl_mois,'MMM'):Février",
             name: "",
             url: "https://qlik.marketing-oui-prod.aws.vsct.fr/sense/app/d0a29b92-7fca-4a9d-b41f-b7e3cd06ed86",
             question: "Sélectionner le mois et la classe de transport  pour lesquels nous avons vendu 146 706 places sur tous les marchés"
