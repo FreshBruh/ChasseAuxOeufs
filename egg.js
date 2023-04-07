@@ -99,6 +99,11 @@ const checkIfAlreadyFound = function (qlikAppId) {
     else return false;
 }
 
+const checkIfAlreadyFoundBySameUser = function (qlikAppId, name) {
+    if (eggList.find(element => element.qlikAppId === qlikAppId).name != name) return false;
+    else return true;
+}
+
 const checkResponse = function (qlikAppId, getCurrentSelection) {
     console.log(qlikAppId);
     console.log(getCurrentSelection);
@@ -137,5 +142,6 @@ module.exports = {
     checkResponse,
     checkIfEggExists,
     getNextEggUrl,
-    getNextQuestion
+    getNextQuestion,
+    checkIfAlreadyFoundBySameUser
 }
