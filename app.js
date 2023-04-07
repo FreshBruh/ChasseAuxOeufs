@@ -3,7 +3,7 @@ const favicon = require('serve-favicon');
 const ejs = require('ejs');
 const path = require('path');
 
-const { eggList, generateData, addFirstFinder, checkIfAlreadyFound, checkResponse,checkIfEggExists, getNextEggUrl } = require('./egg');
+const { eggList, generateData, addFirstFinder, checkIfAlreadyFound, checkResponse,checkIfEggExists, getNextEggUrl,getNextQuestion } = require('./egg');
 const { players, addPlayer, addPointToPlayer, checkIfPlayerExists } = require('./scoring');
 
 
@@ -30,8 +30,10 @@ app.get('/jeu/:qlikApp/:qlikUser/:getCurrentSelection', function(req, res) {
                 if(checkIfAlreadyFound(qlikAppId)) {
                     addPointToPlayer(name, 1);
                     let nextUrl = getNextEggUrl(qlikAppId);
+                    let nextQuestion = getNextQuestion(qlikAppId);
                     const data = {
-                        nextUrl : nextUrl
+                        nextUrl : nextUrl,
+                        nextQuestion: nextQuestion
                     }
                     res.render('goodAnswerNotFirst',data);
 
@@ -39,8 +41,10 @@ app.get('/jeu/:qlikApp/:qlikUser/:getCurrentSelection', function(req, res) {
                     addPointToPlayer(name, 2)
                     addFirstFinder(qlikAppId, name)
                     let nextUrl = getNextEggUrl(qlikAppId);
+                    let nextQuestion = getNextQuestion(qlikAppId);
                     const data = {
-                        nextUrl : nextUrl
+                        nextUrl : nextUrl,
+                        nextQuestion: nextQuestion
                     }
                     res.render('goodAnswerFirst',data);
                 }
