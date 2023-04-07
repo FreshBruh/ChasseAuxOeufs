@@ -16,7 +16,7 @@ const generateData = function () {
             response: "DatedeCommande:7of66;lbl_os:IOS;lbl_Agglo_Reseau:Angoulême-RéseauMöbius",
             name: "",
             url: "https://qlik.marketing-oui-prod.aws.vsct.fr/sense/app/62e42d2d-36a4-40a6-88c3-2023fecdd689",
-            question: "La question pour trouver l'oeuf est la suivante : Sélectionner la bonne semaine calendaire (du lundi au dimanche) de mars, et la bonne Agglomération - Réseau , qui a généré un VA de 56,60 euros pour IOS."
+            question: "Sélectionner la bonne semaine calendaire (du lundi au dimanche) de mars, et la bonne Agglomération - Réseau , qui a généré un VA de 56,60 euros pour IOS."
         },
         {
             eggId: 3,
