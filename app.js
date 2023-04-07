@@ -37,7 +37,13 @@ app.get('/jeu/:qlikApp/:qlikUser/:getCurrentSelection', function (req, res) {
                     }
                     res.render('goodAnswerNotFirst', data);
                 } else {
-                    res.render('alreadyFoundByYou');
+                    let nextUrl = getNextEggUrl(qlikAppId);
+                    let nextQuestion = getNextQuestion(qlikAppId);
+                    const data = {
+                        nextUrl: nextUrl,
+                        nextQuestion: nextQuestion
+                    }
+                    res.render('alreadyFoundByYou', data);
                 }
             } else {
                 addPointToPlayer(name, 2)
