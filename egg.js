@@ -77,7 +77,7 @@ const generateData = function () {
         {
             eggId: 10,
             qlikAppId: "d0a29b92-7fca-4a9d-b41f-b7e3cd06ed86",
-            response: "dt_jour:=[Année]*12+num_mois_annee&lt;=year(today()-1)*12+month(today()-1)andid_date_commande&lt;=today()-1;lbl_classe_transport:Première;=Date#(lbl_mois,'MMM'):Février",
+            response: "dt_jour:=[Année]*12+num_mois_annee<=year(today()-1)*12+month(today()-1)andid_date_commande<=today()-1;lbl_classe_transport:Première;=Date#(lbl_mois,'MMM'):Février",
             name: "",
             url: "https://qlik.marketing-oui-prod.aws.vsct.fr/sense/app/d0a29b92-7fca-4a9d-b41f-b7e3cd06ed86",
             question: "Sélectionner le mois et la classe de transport pour lesquels nous avons vendu 146 706 places sur tous les marchés"
