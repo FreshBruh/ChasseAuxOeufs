@@ -74,14 +74,14 @@ const generateData = function () {
             url: "https://qlik.marketing-oui-prod.aws.vsct.fr/sense/app/d24fa672-9d4a-443b-9f6d-7d086598ad6f",
             question: "Sélectionner la semaine et le marché pour lesquels  le panier moyen sur le site est de 46,11 euros sur les billets avantages"
         },
-        {
-            eggId: 10,
-            qlikAppId: "d0a29b92-7fca-4a9d-b41f-b7e3cd06ed86",
-            response: "lbl_classe_transport:Première;=Date#(lbl_mois,'MMM'):Février",
-            name: "",
-            url: "https://qlik.marketing-oui-prod.aws.vsct.fr/sense/app/d0a29b92-7fca-4a9d-b41f-b7e3cd06ed86",
-            question: "Sélectionner le mois et la classe de transport pour lesquels nous avons vendu 146 706 places sur tous les marchés"
-        },
+        // {
+        //     eggId: 10,
+        //     qlikAppId: "d0a29b92-7fca-4a9d-b41f-b7e3cd06ed86",
+        //     response: "lbl_classe_transport:Première;=Date#(lbl_mois,'MMM'):Février",
+        //     name: "",
+        //     url: "https://qlik.marketing-oui-prod.aws.vsct.fr/sense/app/d0a29b92-7fca-4a9d-b41f-b7e3cd06ed86",
+        //     question: "Sélectionner le mois et la classe de transport pour lesquels nous avons vendu 146 706 places sur tous les marchés"
+        // },
     );
 }
 
