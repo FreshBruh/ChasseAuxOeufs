@@ -1,37 +1,26 @@
 const { eggList, generateData, addFirstFinder, checkIfAlreadyFound, checkResponse, checkIfEggExists } = require('./egg');
-const { players, addPlayer, addPointToPlayer, checkIfPlayerExists } = require('./scoring');
+const { players, addPlayer, addPointToPlayer, checkIfPlayerExists, saveToFile, readScoreFromFile } = require('./scoring');
 
 generateData();
 
-// console.log(eggList);
-// console.log(checkIfAlreadyFound("azerty"));
-// addFirstFinder("azerty","bruh");
-// console.log(eggList);
-// console.log(checkIfAlreadyFound("azerty"));
+addPlayer('Fresh')
+addPointToPlayer('Fresh', 1);
+
+addPlayer('Bruh')
+addPointToPlayer('Bruh', 2);
+
+addPlayer('Raff')
+addPointToPlayer('Raff', 3);
+
+saveToFile(players);
+
+let scoreData;
+
+readScoreFromFile()
+    .then(data => {
+        scoreData = data;
+        console.log('Score data: ', scoreData);
+    })
+    .catch(err => console.error(err));
 
 
-console.log("1: ");
-console.log(players);
-console.log("---------------------");
-
-
-console.log("2: ");
-addPlayer("test");
-console.log(players);
-console.log("---------------------");
-
-
-console.log("3: ");
-addPointToPlayer("test",2);
-console.log(players);
-console.log("---------------------");
-
-console.log("4: ");
-addPlayer("test");
-console.log(players);
-console.log("---------------------");
-
-console.log("5: ");
-addPointToPlayer("test",2);
-console.log(players);
-console.log("---------------------");

@@ -4,7 +4,7 @@ const ejs = require('ejs');
 const path = require('path');
 
 const { eggList, generateData, addFirstFinder, checkIfAlreadyFound, checkResponse, checkIfEggExists, getNextEggUrl, getNextQuestion, checkIfAlreadyFoundBySameUser } = require('./egg');
-const { players, addPlayer, addPointToPlayer, checkIfPlayerExists } = require('./scoring');
+const { players, addPlayer, addPointToPlayer, checkIfPlayerExists, saveToFile, readScoreFromFile } = require('./scoring');
 
 
 const app = express();
@@ -25,10 +25,11 @@ app.get('/jeu/:qlikApp/:qlikUser/:getCurrentSelection', function (req, res) {
 
     if (checkIfEggExists(qlikAppId)) {
         if (checkResponse(qlikAppId, getCurrentSelection)) {
-            if (!checkIfPlayerExists(name)) addPlayer(name);
+            if (!checkIfPlayerExists(name)) { addPlayer(name); saveToFile(players); }
             if (checkIfAlreadyFound(qlikAppId)) {
                 if (!checkIfAlreadyFoundBySameUser(qlikAppId, name)) {
                     addPointToPlayer(name, 1);
+                    saveToFile(players);
                     let nextUrl = getNextEggUrl(qlikAppId);
                     let nextQuestion = getNextQuestion(qlikAppId);
                     const data = {
@@ -40,8 +41,9 @@ app.get('/jeu/:qlikApp/:qlikUser/:getCurrentSelection', function (req, res) {
                     res.render('alreadyFoundByYou');
                 }
             } else {
-                addPointToPlayer(name, 2)
-                addFirstFinder(qlikAppId, name)
+                addPointToPlayer(name, 2);
+                saveToFile(players);
+                addFirstFinder(qlikAppId, name);
                 let nextUrl = getNextEggUrl(qlikAppId);
                 let nextQuestion = getNextQuestion(qlikAppId);
                 const data = {
@@ -60,10 +62,18 @@ app.get('/jeu/:qlikApp/:qlikUser/:getCurrentSelection', function (req, res) {
 });
 
 app.get('/jeu/leaderboard', function (req, res) {
-    const data = {
-        players: players
-    };
-    res.render('leaderboard', data);
+
+    readScoreFromFile()
+        .then(promiseData => {
+            const data = {
+                players: players
+            };
+            console.log('Score data: ', promiseData);
+            res.render('leaderboard', data);
+        })
+        .catch(err => console.error(err));
+
+
 })
 
 
