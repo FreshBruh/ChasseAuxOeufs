@@ -71,10 +71,10 @@ app.get('/jeu/leaderboard', function (req, res) {
 
     readScoreFromFile()
         .then(promiseData => {
+            const dataFromJson = JSON.parse(promiseData);
             const data = {
-                players: players
+                players: dataFromJson
             };
-            console.log('Score data: ', promiseData);
             res.render('leaderboard', data);
         })
         .catch(err => console.error(err));
