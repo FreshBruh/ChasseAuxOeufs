@@ -40,15 +40,15 @@ const generateData = function () {
             response: "Mois:Février;est_TER:1;lbl_liste_transporteurs:TER,TGVINOUI;RegroupementMarché:France;produit_ter:TRAIN;Région:PaysdelaLoire",
             name: "",
             url: "https://qlik.marketing-oui-prod.aws.vsct.fr/sense/app/288b0a78-4fdb-4395-955c-4763d113834e",
-            question: "Pour quel mois et quelle région, nous avons vendu 68 998 places de train sur la liste de transporteurs TER, TGV INOUI sur le marché France ?"
+            question: "Pour quel mois et quelle région (petit indice : c'est une région de l'ouest de la France), nous avons vendu 68 998 places de train sur la liste de transporteurs TER, TGV INOUI sur le regroupement marché France ?"
         },
         {
             eggId: 6,
             qlikAppId: "fcaf824e-cbb8-4f3f-9b5b-a2387c86fa7b",
-            response: "RegroupementMarché:France;RegroupementTransporteur:TGV;SegmentTarif:Jeunes",
+            response: "RegroupementTransporteur:TGV;SegmentTarif:Jeunes;RouteCommerciale:Lille>Marseille",
             name: "",
             url: "https://qlik.marketing-oui-prod.aws.vsct.fr/sense/app/fcaf824e-cbb8-4f3f-9b5b-a2387c86fa7b",
-            question: "Sélectionner le transporteur et le segment tarif pour lesquels la route Lille - Marseille a généré un VA de 226 euros sur le marché France."
+            question: "Sélectionner le transporteur et le segment tarif pour lesquels la route Lille - Marseille a généré un VA de 226 euros."
         },
         {
             eggId: 7,
