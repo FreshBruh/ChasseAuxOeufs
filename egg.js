@@ -16,7 +16,7 @@ const generateData = function () {
             response: "DatedeCommande:13-03-2023,14-03-2023,15-03-2023,17-03-2023,16-03-2023;lbl_os:IOS;lbl_Agglo_Reseau:Angoulême-RéseauMöbius",
             name: "",
             url: "https://qlik.marketing-oui-prod.aws.vsct.fr/sense/app/62e42d2d-36a4-40a6-88c3-2023fecdd689",
-            question: "Sélectionner la bonne semaine calendaire ouvrable (du lundi au vendredi) de mars, et la bonne Agglomération - Réseau , qui a généré un VA de 37,40 euros pour IOS."
+            question: "Sélectionner la bonne semaine calendaire ouvrable (du lundi au vendredi) de mars, et la bonne agglomération - Réseau (petit indice, la bonne agglomération commence par un A), qui a généré un VA de 37,40 euros pour IOS."
         },
         {
             eggId: 3,
@@ -29,7 +29,7 @@ const generateData = function () {
         {
             eggId: 4,
             qlikAppId: "f1088400-19a9-4efd-bedb-336a41cb8bea",
-            response: "DatedeCommande:02/04/2023;RegroupementMarché:France;CanaldeDistribution:Site;TypedeProduit:Liberté",
+            response: "DatedeCommande:02-04-2023;RegroupementMarché:France;CanaldeDistribution:Site;TypedeProduit:Liberté",
             name: "",
             url: "https://qlik.marketing-oui-prod.aws.vsct.fr/sense/app/f1088400-19a9-4efd-bedb-336a41cb8bea",
             question: "Pour quel jour d'avril 2023 et quel type de produit , nous avons vendu 553 cartes sur le site pour le marché France ?"
