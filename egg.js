@@ -1,3 +1,4 @@
+const fs = require('fs');
 let eggList = Array();
 
 const generateData = function () {
@@ -151,6 +152,18 @@ const getNextQuestion = function (qlikAppId) {
     else return false;
 }
 
+const readEggsFromFile = function () {
+    return new Promise((resolve, reject) => {
+        fs.readFile('eggList.json', 'utf8', (err, data) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(data);
+            }
+        });
+    });
+}
+
 module.exports = {
     eggList,
     generateData,
@@ -161,5 +174,6 @@ module.exports = {
     getNextEggUrl,
     getNextQuestion,
     checkIfAlreadyFoundBySameUser,
-    addFinder
+    addFinder,
+    readEggsFromFile
 }

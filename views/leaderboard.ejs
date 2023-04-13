@@ -1,85 +1,88 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Chasse aux oeufs</title>
-    <link rel="icon" href="/assets/favicon.png"/>
-    <style>
 
-        body {
-            font-family: 'Trebuchet MS', sans-serif;
-            background-color: bisque;
-            color: rgb(105,105,105);
-            line-height: 1;
-            justify-content: center;
-        }
-        h1 {
-            font-size: 100px;
-            text-align: center;
-                }
-        table {
-            width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 18px;
-            border-collapse: collapse;
-        }
+<head>
+  <title>Chasse aux oeufs</title>
+  <link rel="icon" href="/assets/favicon.png" />
+  <style>
+    body {
+      font-family: 'Trebuchet MS', sans-serif;
+      background-color: bisque;
+      color: rgb(105, 105, 105);
+      line-height: 1;
+      justify-content: center;
+    }
 
-        td, th {
-            padding: 16px 24px;
-            text-align: left;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    h1 {
+      font-size: 100px;
+      text-align: center;
+    }
 
-        thead tr {
-            background-color: #087f5b;
-            color: #fff;
-        }
+    table {
+      width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 18px;
+      border-collapse: collapse;
+    }
 
-        thead th {
-            width: 25%;
-            text-align: center;
-        }
+    td,
+    th {
+      padding: 16px 24px;
+      text-align: left;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-        tbody tr:nth-child(odd) {
-            background-color: #f8f9fa;
-        }
+    thead tr {
+      background-color: #087f5b;
+      color: #fff;
+    }
 
-        tbody tr:nth-child(even) {
-            background-color: #e9ecef;
-        }
+    thead th {
+      width: 25%;
+      text-align: center;
+    }
 
-        td, th {
-            text-align: center;
-        }
+    tbody tr:nth-child(odd) {
+      background-color: #f8f9fa;
+    }
 
+    tbody tr:nth-child(even) {
+      background-color: #e9ecef;
+    }
 
-        
-    </style>
-  </head>
-  <body>
-    <h1>Chasse aux oeufs</h1>
-    <br/>
-    <p> <%
-        players.forEach(function(player) {
-            console.log(`Joueur : ${player.name} | score : ${player.score}`)
-        });
-    %></p>
-    <table>
-        <thead>
-          <tr>
-            <th colspan="2">Scores</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% players.forEach(function(player) { %>
-          <tr>
-            <th><%= player.name %></th>
-            <td><%= player.score %></td>
-          </tr>
-          <% }); %>
-        </tbody>
-      </table>
-  
-  </body>
+    td,
+    th {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Chasse aux oeufs</h1>
+  <br />
+  <p> </p>
+  <table>
+    <thead>
+      <tr>
+        <th colspan="2">Scores</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% players.forEach(function(player) { %>
+        <tr>
+          <th>
+            <%= player.name %>
+          </th>
+          <td>
+            <%= player.score %>
+          </td>
+        </tr>
+        <% }); %>
+    </tbody>
+  </table>
+
+</body>
+
 </html>

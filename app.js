@@ -3,8 +3,8 @@ const favicon = require('serve-favicon');
 const ejs = require('ejs');
 const path = require('path');
 
-const { eggList, generateData, addFirstFinder, checkIfAlreadyFound, checkResponse, checkIfEggExists, getNextEggUrl, getNextQuestion, checkIfAlreadyFoundBySameUser, addFinder } = require('./egg');
-const { players, addPlayer, addPointToPlayer, checkIfPlayerExists, saveToFile, readScoreFromFile } = require('./scoring');
+let { eggList, generateData, addFirstFinder, checkIfAlreadyFound, checkResponse, checkIfEggExists, getNextEggUrl, getNextQuestion, checkIfAlreadyFoundBySameUser, addFinder, readEggsFromFile } = require('./egg');
+let { players, addPlayer, addPointToPlayer, checkIfPlayerExists, saveToFile, readScoreFromFile } = require('./scoring');
 
 
 const app = express();
@@ -70,10 +70,12 @@ app.get('/jeu/:qlikApp/:qlikUser/:getCurrentSelection', function (req, res) {
 });
 
 app.get('/jeu/leaderboard', function (req, res) {
-
+    console.log(eggList);
+    console.log(typeof eggList);
     readScoreFromFile()
         .then(promiseData => {
             const dataFromJson = JSON.parse(promiseData);
+            console.log(dataFromJson);
             const data = {
                 players: dataFromJson
             };
@@ -81,6 +83,23 @@ app.get('/jeu/leaderboard', function (req, res) {
         })
         .catch(err => console.error(err));
 
+
+})
+
+app.get('/jeu/loadFromFile', function (req, res) {
+    readScoreFromFile()
+        .then(promiseScore => {
+            const scoreFromJson = JSON.parse(promiseScore);
+            players = scoreFromJson;
+        })
+        .catch(err => console.error(err));
+
+    readEggsFromFile()
+        .then(promiseEggList => {
+            const eggListFromJson = JSON.parse(promiseEggList);
+            eggList = eggListFromJson;
+        })
+        .catch(err => console.error(err))
 
 })
 
